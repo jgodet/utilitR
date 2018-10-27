@@ -24,11 +24,11 @@
 
 
 summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE){
-  if(!require(xtable)){install.packages(xtable)}
+  if(!require(xtable)){install.packages('xtable')}
   require(xtable)
-  if(!require('broom')){install.packages(broom)}
+  if(!require('broom')){install.packages('broom')}
   require(broom)
-  if(!require('GGally')){install.packages(GGally)}
+  if(!require('GGally')){install.packages('GGally')}
   require(GGally)
 
   etoiles <- ifelse(summary(glm.fit)[12]$coefficients[,4] < 0.001,"***",
