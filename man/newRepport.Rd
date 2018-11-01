@@ -4,7 +4,8 @@
 \alias{newRepport}
 \title{Create Rnw file for data analysis repport template using LateX}
 \usage{
-newRepport(nom = "NOM", prenom = "PRENOM", path = NULL, filename = NULL)
+newRepport(nom = "NOM", prenom = "PRENOM", path = NULL,
+  filename = NULL)
 }
 \arguments{
 \item{nom}{Surname}

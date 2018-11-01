@@ -4,8 +4,8 @@
 \alias{lmB}
 \title{Fitting Linear Models using bayesian inference}
 \usage{
-lmB(formula, data = NULL, graphOutput = TRUE, nIter = 10000, thin = 1,
-  returnCodaSamples = FALSE)
+lmB(formula, data = NULL, graphOutput = TRUE, nIter = 10000,
+  thin = 1, returnCodaSamples = FALSE)
 }
 \arguments{
 \item{formula}{an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
