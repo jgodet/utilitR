@@ -4,10 +4,16 @@
 \alias{cleanUpAttempt}
 \title{Attempt to clean-up messy vectors}
 \usage{
-cleanUpAttempt(messy, cluster = FALSE, ngroup = NULL)
+cleanUpAttempt(messy, cluster = FALSE, ngroup = NULL, graph = TRUE)
 }
 \arguments{
 \item{messy}{a factor vector}
+
+\item{cluster}{logical}
+
+\item{ngroup}{integer giving the number of cluster to be formed}
+
+\item{graph}{logical plot or not hclust}
 }
 \value{
 void or cleaned-up factor

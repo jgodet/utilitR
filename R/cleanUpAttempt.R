@@ -80,7 +80,7 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE ){
   # hc <- hclust(dist(t(sc)))
   # plot(hc, hang = -1)
 
-  if(!is.null(ngroup)){
+  if(!is.null(ngroup) & graph){
     rect.hclust(hc, k = ngroup,border=rainbow(ngroup))
   }
 
