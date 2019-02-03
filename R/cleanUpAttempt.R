@@ -7,6 +7,9 @@
 #' @author JuG
 #' @description An attempt to clean-up messy vectors
 #' @param messy a factor vector
+#' @param cluster logical
+#' @param ngroup integer giving the number of cluster to be formed
+#' @param graph logical plot or not hclust
 #' @details use stringdist package. examples from \url{https://cran.r-project.org/web/packages/rrefine/vignettes/rrefine-vignette.html}
 #' @examples
 #' x <- c("Y", "Y,", "Yes", "N", "No",NA,"No","No","No","Nope","Yes","Yes","Yes")
@@ -39,7 +42,7 @@
 #' @export
 
 
-cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL ){
+cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE ){
   if(!require(stringdist)){install.packages('stringdist')}
   if(length(messy)<3){
     return(cat("Messy must be of length > 2"))
@@ -54,7 +57,7 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL ){
   d3 <- stringdistmatrix(substring(tolower(unaccent(messy)), first = 1,last = 1))
   d <- d1+d2+d3
   hc <- hclust(d)
-  plot(hc,labels = messy,hang=-1)
+  if(graph){plot(hc,labels = messy,hang=-1)}
 
 
   # sc<-numeric()
