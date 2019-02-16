@@ -21,7 +21,7 @@
 #' @export
 
 
-BlandAltman<- function (data1, data2, alpha = 0.05, rep.meas = FALSE, subject, silent=FALSE,...)
+BlandAltman<- function (data1, data2, alpha = 0.05, rep.meas = FALSE, subject, silent=FALSE,addpoints = FALSE,...)
 { x <- data1
   y <- data2
   z <- qnorm(1 - alpha/2)
@@ -49,8 +49,12 @@ BlandAltman<- function (data1, data2, alpha = 0.05, rep.meas = FALSE, subject, s
   }
   bsup <- diff.moy + z * et.d
   binf <- diff.moy - z * et.d
-  plot(m, d, abline(h = c(diff.moy, bsup, binf), col = "red"),
-       lty = c(1, 2, 2), pch = 16, main = "Bland Altman plot", ...)
+  if(!addpoints){
+    plot(m, d, abline(h = c(diff.moy, bsup, binf), col = "red"),
+       lty = c(1, 2, 2), main = "Bland Altman plot", ...)
+  }else{
+    points(m, d,...)
+  }
   valeurs <- round(cbind(binf, diff.moy, bsup), 4)
   colnames(valeurs) <- c("Borne inf", "Moyenne", "Borne sup")
   if (!rep.meas)
