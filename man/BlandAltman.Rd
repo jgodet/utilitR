@@ -5,7 +5,7 @@
 \title{Perform and plot Band and Altman analysis}
 \usage{
 BlandAltman(data1, data2, alpha = 0.05, rep.meas = FALSE, subject,
-  silent = FALSE, ...)
+  silent = FALSE, addpoints = FALSE, ...)
 }
 \arguments{
 \item{data1}{vector of data1}
