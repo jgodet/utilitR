@@ -38,7 +38,7 @@ summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE){
                            )
                     )
   )
-  results <- as.data.frame(cbind(round(exp(cbind(coef(glm.fit), suppressMessages(confint(glm.fit)))),3),round(summary(glm.fit)[12]$coefficients[,4],4),noquote(etoiles)))
+  results <- as.data.frame(cbind(round(exp(cbind(coef(glm.fit), suppressMessages(confint(glm.fit)))),3),round(summary(glm.fit)$coefficients[,4],4),noquote(etoiles)))
   colnames(results) <- c("Odds Ratio", "2.5 %", "97.5 %","p.value","" )
   results$p.value <- ifelse(as.numeric(as.character(results$p.value))<0.001,"<0.001",round(as.numeric(as.character(results$p.value)),3))
 
