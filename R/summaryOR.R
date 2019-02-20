@@ -19,7 +19,7 @@
 #'
 #'  logist <- glm(y~., data=Data, family="binomial")
 #'  summary(logist)
-#'  summaryOR(glm.fit=logist,lateX=FALSE,graph=TRUE)
+#'  summaryOR(glm.fit=logist,lateX=FALSE,graph=FALSE)
 #' @export
 
 
@@ -31,10 +31,10 @@ summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE){
   if(!require('GGally')){install.packages('GGally')}
   require(GGally)
 
-  etoiles <- ifelse(summary(glm.fit)[12]$coefficients[,4] < 0.001,"***",
-                    ifelse(summary(glm.fit)[12]$coefficients[,4] < 0.01,"**",
-                           ifelse(summary(glm.fit)[12]$coefficients[,4] < 0.05,"*",
-                                  ifelse(summary(glm.fit)[12]$coefficients[,4] < 0.1,".","")
+  etoiles <- ifelse(summary(glm.fit)$coefficients[,4] < 0.001,"***",
+                    ifelse(summary(glm.fit)$coefficients[,4] < 0.01,"**",
+                           ifelse(summary(glm.fit)$coefficients[,4] < 0.05,"*",
+                                  ifelse(summary(glm.fit)$coefficients[,4] < 0.1,".","")
                            )
                     )
   )
