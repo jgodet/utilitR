@@ -29,5 +29,5 @@ x3 <- rnorm(50, 12,5)
 
  logist <- glm(y~., data=Data, family="binomial")
  summary(logist)
- summaryOR(glm.fit=logist,lateX=FALSE,graph=TRUE)
+ summaryOR(glm.fit=logist,lateX=FALSE,graph=FALSE)
 }
