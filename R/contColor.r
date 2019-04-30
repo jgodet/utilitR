@@ -5,7 +5,7 @@
 
 #' Encode colour for plotting a continuous variabe
 #' @author JuG
-#' @description Encode colour for plotting a continuous variabe
+#' @description Encode colour for plotting a continuous variable
 #' @param num a continuous variable
 #' @param palette a palette like terrain.color(n), ...
 #' @details

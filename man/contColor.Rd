@@ -12,7 +12,7 @@ contColor(num, palette = matlab.like(100))
 \item{palette}{a palette like terrain.color(n), ...}
 }
 \description{
-Encode colour for plotting a continuous variabe
+Encode colour for plotting a continuous variable
 }
 \examples{
 x <- runif(n = 100, min = 1, max = 100)
