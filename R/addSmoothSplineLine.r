@@ -23,10 +23,10 @@
 addSmoothSplineLine<- function(y, x = NULL,col="blue",lwd=2,...){
 
   if(!is.null(x)){
-    yss <- smooth.spline(x=x,y=y)
+    yss <- smooth.spline(x=x,y=y,...)
    lines(yss, col=col,lwd=lwd)
   }else{
-    yss <- smooth.spline(y)
+    yss <- smooth.spline(y,...)
     lines(yss, col=col,lwd=lwd)
   }
   return()
