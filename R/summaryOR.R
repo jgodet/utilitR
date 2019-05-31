@@ -23,7 +23,7 @@
 #' @export
 
 
-summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE){
+summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE,...){
   if(!require(xtable)){install.packages('xtable')}
   require(xtable)
   if(!require('broom')){install.packages('broom')}
@@ -50,7 +50,7 @@ summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE){
   }
 
   if(lateX){
-    return(xtable::xtable(results))
+    return(xtable::xtable(results,...))
   }else{
     return(results)
   }
