@@ -50,7 +50,7 @@ summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE,...){
   }
 
   if(lateX){
-    return(xtable::xtable(results,...))
+    return(xtable::print.xtable(xtable::xtable(results),...))
   }else{
     return(results)
   }
