@@ -34,10 +34,10 @@ stripPlot <- function(data, formula, col = NULL, addBoxplot = FALSE, jitter = .3
   }
   if(grid){
     stripchart(  formula,data=data,method='jitter',jitter= jitter,vertical=TRUE,
-             pch=21, bg=rgb(.7,.7,.7,.8),col=col,cex=1,panel.first= grid(),xlab=xlab, ylab=ylab,xlim=xlim,ylim=ylim,...)
+             pch=21, bg=rgb(.7,.7,.7,.8),col=col,panel.first= grid(),...)
   }else{
     stripchart(  formula,data=data,method='jitter',jitter= jitter,vertical=TRUE,
-                 pch=21, bg=rgb(.7,.7,.7,.8),col=col,cex=1,xlab=xlab, ylab=ylab,xlim=xlim,ylim=ylim,...)
+                 pch=21, bg=rgb(.7,.7,.7,.8),col=col,...)
   }
   if(addBoxplot){
     bxplot( formula,data=data,add=TRUE)
