@@ -15,7 +15,7 @@
 #' @param effect "fixed", "random" or "randomPrior" effect for variable selection
 #' @details Models for lm are specified symbolically. A typical model has the form response ~ terms where response is the (numeric) response vector and terms is a series of terms which specifies a linear predictor for response.    The effect "randomPrior" adds a beta prior for the model inclusion probability. This induces a distribution for the number of included variables which has longer tails than the binomial distribution, allowing the model to learn about the degree of sparsity.
 #' @examples
-#' #generate model data
+#' #generate model data.
 #' n <- 500
 #' p <- 20
 #' X <- matrix(rnorm(n*p),ncol=p)
