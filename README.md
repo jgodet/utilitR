@@ -2,6 +2,7 @@
 
 Some useful functions for [R](https://www.r-project.org) 
 
+![hexaSticker](utilitR.svg)
 
 ---
 
