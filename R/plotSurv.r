@@ -16,7 +16,7 @@
 #' @export
 
 
-plotSurv<- function(fit ){
+plotSurv<- function(fit,... ){
   if(!require(ggplot2)){install.packages('ggplot2')}
   require(ggplot2)
   if(!require(survminer)){install.packages('survminer')}
@@ -31,5 +31,5 @@ plotSurv<- function(fit ){
              linetype = "strata", # Change line type by groups
              surv.median.line = "hv", # Specify median survival
              ggtheme = theme_bw(), # Change ggplot2 theme
-             palette = coul)
+             palette = coul,...)
 }
