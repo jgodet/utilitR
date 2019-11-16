@@ -26,7 +26,7 @@
 #' @export
 
 
-stripPlot <- function(data, formula, col = NULL, addBoxplot = FALSE, jitter = .3, grid = FALSE, xlab=NULL, ylab=NULL,xlim=NULL, ylim=NULL,...){
+stripPlot <- function(data, formula, col = NULL, addBoxplot = FALSE, jitter = .3, grid = FALSE,...){
   if(!require(beeswarm)){install.packages('beeswarm')}
   require(beeswarm)
   if (is.null(col)){
