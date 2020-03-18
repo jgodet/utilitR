@@ -5,7 +5,7 @@
 \title{Odds ratio summary statistics
 #' @author JuG}
 \usage{
-summaryOR(glm.fit, lateX = TRUE, graph = TRUE)
+summaryOR(glm.fit, lateX = TRUE, graph = TRUE, ...)
 }
 \arguments{
 \item{glm.fit}{an object of class "glm.fit" calculated with a "binomial "link function.}

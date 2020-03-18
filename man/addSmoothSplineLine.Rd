@@ -20,11 +20,11 @@ Add a fitted cubic smoothing spline to the supplied graph
 \examples{
 n <- 1e3
 dat <- data.frame(
-  x = 1:n,
+  x = (1:n)+50,
   y = sin(seq(0, 5*pi, length.out = n)) + rnorm(n=n, mean = 0, sd=0.1)
 )
 plot(dat)
-addSmoothSplineLine(dat$y,col='red')
+addSmoothSplineLine(y=dat$y,x=dat$x,col='blue')
 }
 \author{
 JuG

@@ -4,7 +4,7 @@
 \alias{plotSurv}
 \title{Plot survival curves}
 \usage{
-plotSurv(fit)
+plotSurv(fit, ...)
 }
 \arguments{
 \item{fit}{a survfit object}

@@ -16,7 +16,7 @@ piEst(y = 12, n = 20, beta.priors = c(0.5, 0.5), credMass = 0.95,
 
 \item{credMass}{mass of the HDI region}
 
-\item{showPlot}{if TRUE, show a graphical representation of the Pi distribution}
+\item{showPlot}{if TRUE, show a graphical representation of $\pi$ distribution}
 }
 \value{
 Proportion estimates with HDI, CI (quantile c(.025,0.975)), and binomial CI (from binom.test)
