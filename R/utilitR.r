@@ -8,6 +8,7 @@
 #' Some useful functions for R
 #' @docType package
 #' @name utilitR
-NULL
+#'
+
 
 NULL
