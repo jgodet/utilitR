@@ -23,7 +23,7 @@ newRepport<- function(nom = "NOM", prenom = "PRENOM", path = NULL, filename = NU
   st1 <-"\\documentclass{article}\n\\usepackage{longtable}\n\\usepackage[french]{babel}\n\\usepackage[T1]{fontenc}\n\\usepackage[utf8]{inputenc}\n\\usepackage[table]{xcolor}\n\\usepackage{amsmath}\n\\usepackage{amssymb}\n\\usepackage{latexsym}\n\\usepackage{lscape}\n\\usepackage{float}\n\\usepackage[colorlinks=true,urlcolor=blue]{hyperref}\n  "
   st2 <-paste("\n\\definecolor{oldlace}{rgb}{1.00, 0.976,0.93}\n\\newcommand{\\nom}{",nom,"} % le nom du clinicien (titre du rapport et bas de page)\n\\newcommand{\\prenom}{",prenom,"}% le prenom du clinicien (titre du rapport et bas de page)\n\n\n",sep='')
   st3 <-"\\voffset -0.2 in \n\\textheight 20cm \n\\headheight 0.6cm \n\\headsep 1 cm	\n\n\n\n\n\\begin{document}\n"
-  if(grep("macOS",sessionInfo()$running)==1){
+  if(length(grep("macOS",sessionInfo()$running))>=1){
     st4 <-"\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{/Users/jgodet/Seafile/MaBibliotheque/hus/logo1.png}~ \\\\ [0.5cm]\n
   \\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE Résultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE \\prenom ~\\nom}\\\\ \n"
   }else{
