@@ -9,6 +9,9 @@ plotlm(x, y, data = NULL, prediction = FALSE, ...)
 \arguments{
 \item{prediction}{if TRUE, prediction intervals are drawn}
 }
+\value{
+
+}
 \description{
 Plot 2D regression line with confidence intervals
 }

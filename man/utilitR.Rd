@@ -3,7 +3,6 @@
 \docType{package}
 \name{utilitR}
 \alias{utilitR}
-\alias{utilitR-package}
 \title{utilitR}
 \description{
 Some useful functions for R

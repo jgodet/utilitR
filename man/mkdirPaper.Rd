@@ -11,6 +11,9 @@ mkdirPaper(path, name)
 
 \item{name}{name of the folder}
 }
+\value{
+
+}
 \description{
 Create an organised folder for publications data
 }

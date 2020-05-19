@@ -13,6 +13,9 @@ newTemplate(path, name, createFile = F)
 
 \item{createFile}{boolean}
 }
+\value{
+
+}
 \description{
 Create a R script template
 }

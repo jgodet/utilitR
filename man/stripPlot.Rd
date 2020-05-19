@@ -4,8 +4,15 @@
 \alias{stripPlot}
 \title{Plot a customized stipchart}
 \usage{
-stripPlot(data, formula, col = NULL, addBoxplot = FALSE,
-  jitter = 0.3, grid = FALSE, ...)
+stripPlot(
+  data,
+  formula,
+  col = NULL,
+  addBoxplot = FALSE,
+  jitter = 0.3,
+  grid = FALSE,
+  ...
+)
 }
 \arguments{
 \item{formula}{a formula, such as y ~ grp, where y is a numeric vector of data values to be split into groups according to the grouping variable grp (usually a factor)}

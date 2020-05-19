@@ -4,8 +4,14 @@
 \alias{piEst}
 \title{Estimate population proportion and interval limits}
 \usage{
-piEst(y = 12, n = 20, beta.priors = c(0.5, 0.5), credMass = 0.95,
-  showPlot = FALSE, ...)
+piEst(
+  y = 12,
+  n = 20,
+  beta.priors = c(0.5, 0.5),
+  credMass = 0.95,
+  showPlot = FALSE,
+  ...
+)
 }
 \arguments{
 \item{y}{counts of successes}

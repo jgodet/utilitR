@@ -11,6 +11,9 @@ plotlmB(x, y, mcmcList, data = NULL, ...)
 
 \item{prediction}{if TRUE, prediction intervals are drawn}
 }
+\value{
+
+}
 \description{
 #' Plot 2D regression line from lmB
 }

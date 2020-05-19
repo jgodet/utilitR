@@ -11,6 +11,9 @@ contColor(num, palette = matlab.like(100))
 
 \item{palette}{a palette like terrain.color(n), ...}
 }
+\value{
+
+}
 \description{
 Encode colour for plotting a continuous variable
 }

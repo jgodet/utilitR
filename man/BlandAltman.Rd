@@ -4,8 +4,16 @@
 \alias{BlandAltman}
 \title{Perform and plot Band and Altman analysis}
 \usage{
-BlandAltman(data1, data2, alpha = 0.05, rep.meas = FALSE, subject,
-  silent = FALSE, addpoints = FALSE, ...)
+BlandAltman(
+  data1,
+  data2,
+  alpha = 0.05,
+  rep.meas = FALSE,
+  subject,
+  silent = FALSE,
+  addpoints = FALSE,
+  ...
+)
 }
 \arguments{
 \item{data1}{vector of data1}
@@ -17,6 +25,9 @@ BlandAltman(data1, data2, alpha = 0.05, rep.meas = FALSE, subject,
 \item{rep.meas}{boolean true if data are repeated measurements}
 
 \item{silent}{boolean if FALSE, parameters list is not returned}
+}
+\value{
+
 }
 \description{
 Perform and plot Band and Altman analysis

@@ -4,8 +4,14 @@
 \alias{lmBselect}
 \title{Variable selection and fitting Linear Models using bayesian inference.}
 \usage{
-lmBselect(formula, data, graphOutput = TRUE, nIter = 10000, thin = 1,
-  effect = "random")
+lmBselect(
+  formula,
+  data,
+  graphOutput = TRUE,
+  nIter = 10000,
+  thin = 1,
+  effect = "random"
+)
 }
 \arguments{
 \item{formula}{an object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
