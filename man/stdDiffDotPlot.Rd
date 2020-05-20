@@ -5,18 +5,36 @@
 \title{Plot the absolute standardised differences of variables used to generate the propensity score}
 \usage{
 stdDiffDotPlot(
+  dataSMD,
   data,
   treat = "treat",
   showRes = TRUE,
   plotGraph = TRUE,
   lateX = FALSE,
+  inset = 0.02,
+  xlim = c(0, 0.5),
+  col,
   ...
 )
 }
 \arguments{
+\item{dataSMD}{dataframe of SMD results}
+
 \item{data}{dataframe}
 
 \item{treat}{name of the treatment variable}
+
+\item{showRes}{boolean if true print result table}
+
+\item{plotGraph}{boolean if true show graph in the output}
+
+\item{lateX}{boolean if true print result table in lateX format}
+
+\item{inset}{inset for legend position relative to the bottom right}
+
+\item{xlim}{xlim see ?par}
+
+\item{col}{colors}
 }
 \value{
 data.frame
@@ -35,14 +53,24 @@ binary2<-factor(round(abs(rnorm(100)+1)*10,0) \%\% 2)
 category<-factor(round(abs(rnorm(100)+1)*10,0) \%\% 3)
 category2<-factor(round(abs(rnorm(100)+1)*10,0) \%\% 5)
 data<-data.frame(treat,numeric1, numeric2,binary, binary2,category, category2)
+
+
 stdDiffDotPlot(data = data, treat = "treat", showRes = TRUE, plotGraph = FALSE)
 stdDiffDotPlot(data = data, treat = "treat", showRes = FALSE, plotGraph = TRUE, xlim=c(-.5,1), pch=21, bg="lightgrey", col=c("blue","black"))
-res <- stdDiffDotPlot(data = data, treat = "treat", showRes = TRUE, plotGraph = FALSE)
-segments(x0=res$stddiff.l, x1=res$stddiff.u, y0=1:6)
+#res <- stdDiffDotPlot(data = data, treat = "treat", showRes = TRUE, plotGraph = FALSE)
+#segments(x0=res$stddiff.l, x1=res$stddiff.u, y0=1:6)
 
 
 data2 <- data.frame(age=c(rnorm(2929, 69.6, 13.5), rnorm(6178, 65, 13.3)), ttt=c(rep("NobetaBlock",2929), rep("betaBlock", 6178)))
 stdDiffDotPlot(data = data2, treat = "ttt", showRes = TRUE, plotGraph = FALSE)
+
+example 2 : with dataSMD
+dataSMD = data.frame(unmatched = c(.4,.2,.25,.3),
+   matched = c(.1,.1,.05,.02),
+   weighted = c(.02,.05,.08,.03))
+rownames(dataSMD) <- c("Age", "Height", "Weight", "ParamX")
+
+stdDiffDotPlot(dataSMD=dataSMD,col=c("black", "blue", "purple") )
 }
 \author{
 JuG
