@@ -12,11 +12,12 @@
 #' require(survival)
 #' fit <- survfit(Surv(time, status) ~ sex, data = lung)
 #' plotSurv(fit)
+#' fit <- survfit(Surv(time, status) ~ 1, data = lung)
 #' @return graph
 #' @export
 
 
-plotSurv<- function(fit,... ){
+plotSurv<- function(fit,pval = TRUE,... ){
   if(!require(ggplot2)){install.packages('ggplot2')}
   require(ggplot2)
   if(!require(survminer)){install.packages('survminer')}
@@ -24,8 +25,8 @@ plotSurv<- function(fit,... ){
   if(!require(RColorBrewer)){install.packages("RColorBrewer")}
   library(RColorBrewer)
   coul <- brewer.pal(n = 8, name = "Set1")
-  ggsurvplot(fit,
-             pval = TRUE, conf.int = TRUE,
+  ggsurvplot(fit,pval=pval,
+             conf.int = TRUE,
              risk.table = TRUE, # Add risk table
              risk.table.col = "strata", # Change risk table color by groups
              linetype = "strata", # Change line type by groups
