@@ -29,7 +29,7 @@ piEst <- function(y=12, n=20, beta.priors =c(.5,.5),credMass = 0.95, showPlot = 
   library('stargazer')
   if(!require('kableExtra')){install.packages('kableExtra')}
   library('kableExtra')
-  kableExtra
+
   # likelihood p
   p <- y/n
   alpha.lkhood <- y
