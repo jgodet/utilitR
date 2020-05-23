@@ -10,6 +10,7 @@ piEst(
   beta.priors = c(0.5, 0.5),
   credMass = 0.95,
   showPlot = FALSE,
+  lateX = FALSE,
   ...
 )
 }
@@ -23,6 +24,8 @@ piEst(
 \item{credMass}{mass of the HDI region}
 
 \item{showPlot}{if TRUE, show a graphical representation of Pi distribution}
+
+\item{lateX}{if TRUE, print lateX output}
 }
 \value{
 Proportion estimates with HDI, CI (quantile c(.025,0.975)), and binomial CI (from binom.test)

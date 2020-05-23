@@ -13,6 +13,7 @@
 #' @param beta.priors vector of 2 non-negative parameters of the Beta prior distribution (shapes - by default Jeffrey's c(0.5,0.5))
 #' @param credMass mass of the HDI region
 #' @param showPlot if TRUE, show a graphical representation of Pi distribution
+#' @param lateX if TRUE, print lateX output
 #' @return Proportion estimates with HDI, CI (quantile c(.025,0.975)), and binomial CI (from binom.test)
 #'
 #' @examples
@@ -22,7 +23,7 @@
 
 
 
-piEst <- function(y=12, n=20, beta.priors =c(.5,.5),credMass = 0.95, showPlot = FALSE, ...){
+piEst <- function(y=12, n=20, beta.priors =c(.5,.5),credMass = 0.95, showPlot = FALSE, lateX = FALSE, ...){
 
   if(!require('stargazer')){install.packages('stargazer')}
   library('stargazer')
@@ -49,7 +50,11 @@ piEst <- function(y=12, n=20, beta.priors =c(.5,.5),credMass = 0.95, showPlot = 
 
   res <- data.frame(p_obs = round(p,4), Pi.est = round(E,4), HDI = round(hdi,4),CI =round(unname(ci),4), Binom = round(bt$conf.int[1:2],4))
   res[2,1:2] <- ""
-  stargazer(t(res), type="text",single.row=FALSE,summary=FALSE)
+  if(lateX){
+    stargazer(t(res), type = "latex",single.row=FALSE,summary=FALSE)
+  }else{
+    stargazer(t(res), type="text",single.row=FALSE,summary=FALSE)
+  }
 
   if(showPlot){
     curve(dbeta(x,alpha.post, beta.post),from=0, to =1,xlab="",ylab="Density",
