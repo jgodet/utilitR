@@ -29,7 +29,7 @@ piEst <- function(y=12, n=20, beta.priors =c(.5,.5),credMass = 0.95, showPlot = 
   if(!require('stargazer')){install.packages('stargazer')}
   library('stargazer')
   if(!require('kableExtra')){install.packages('kableExtra')}
-  library('kableExtra')
+  library(kableExtra)
 
   # likelihood p
   p <- y/n
@@ -55,7 +55,7 @@ piEst <- function(y=12, n=20, beta.priors =c(.5,.5),credMass = 0.95, showPlot = 
   res <- data.frame(p_obs = round(p,4), Pi.est = round(E,4), HDI = round(hdi,4),CI =round(unname(ci),4), Binom = round(bt$conf.int[1:2],4))
   res[2,1:2] <- ""
   if(lateX){
-    return(kableExtra::kable(t(res), format = "latex"))
+    return( kableExtra::kable(t(res), format = "latex"))
   }else{
     stargazer(t(res), type="text",single.row=FALSE,summary=FALSE)
   }
