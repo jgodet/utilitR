@@ -4,7 +4,7 @@
 \alias{plotSurv}
 \title{Plot survival curves}
 \usage{
-plotSurv(fit, ...)
+plotSurv(fit, pval = TRUE, ...)
 }
 \arguments{
 \item{fit}{a survfit object}
@@ -22,6 +22,7 @@ code from \url{http://www.sthda.com/english/wiki/survival-analysis-basics}
 require(survival)
 fit <- survfit(Surv(time, status) ~ sex, data = lung)
 plotSurv(fit)
+fit <- survfit(Surv(time, status) ~ 1, data = lung)
 }
 \author{
 JuG
