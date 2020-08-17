@@ -58,6 +58,45 @@ summaryOR <- function(glm.fit, lateX = TRUE, graph = TRUE,...){
 
 }
 
-
-
-
+# codes de Francois à intégrer?
+# #### Présentation tableaux résultats glm
+# tableRes<-function(m){
+#   cbind(paste(" ",round(exp(m$coefficients),3)),paste(" ","[",round(exp(as.numeric(confint(m)[,1])),3)," ; ",round(exp(as.numeric(confint(m)[,2])),3),"]",sep=""),paste(" ",round(summary(m)$coefficients[,4],3)))->res
+#   rownames(res)=rownames(summary(m)$coefficients)
+#   colnames(res)=c("   OR","      IC95%","    p")
+#   noquote(res)}
+# tableRes(m)
+#
+#
+# #### Présentation tableaux résultats glmer
+# tableResM<-function(m){
+#   cbind(round(t(t(exp(summary(m)$ coefficients[,1]))),3),
+#         paste("[",round(t(t(exp(summary(m)$coefficients[,1]-1.96*summary(m)$ coefficients[,2]))),3)),
+#         paste(round(t(t(exp(summary(m)$coefficients[,1]+1.96*summary(m)$ coefficients[,2]))),3),"]"),
+#         round(summary(m)$coefficients[,4],3)
+#   )->res
+#   colnames(res)=c("  OR","  BInf","  BSup","  p")
+#   noquote(res)}
+# tableResM(m)
+#
+#
+# #### Présentation tableaux résultats hglm2
+# tableReshglm<-function(m){
+#   cbind(round(t(t(exp(m$fixef))),3),
+#         paste("[",round(t(t(exp(m$fixef-1.96*m$SeFe))),3)),
+#         paste(round(t(t(exp(m$fixef+1.96*m$SeFe))),3),"]"),
+#         round(summary(m)$FixCoefMat[,4],3)
+#   )->res
+#   colnames(res)=c("  OR","  BInf","  BSup","  p")
+#   noquote(res)}
+# tableReshglm (m)
+#
+# #### Présentation tableaux résultats modèle Cox
+# tableResSurv<-function(m){
+#   cbind(paste(" ",round(exp(m$coefficients),3)),paste(" ","[",round(exp(as.numeric(confint(m)[,1])),3)," ; ",round(exp(as.numeric(confint(m)[,2])),3),"]",sep=""),paste(" ",round(summary(m)$coefficients[,5],3)))->res
+#   rownames(res)=rownames(summary(m)$coefficients)
+#   colnames(res)=c("   HR","      IC95%","    p")
+#   noquote(res)}
+# tableResSurv (m)
+#
+#
