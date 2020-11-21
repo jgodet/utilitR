@@ -1,4 +1,4 @@
-# lmB.r
+# lmBayes.r
 # written by JuG
 # Tue Dec 12 14:47:40 2017"
 
@@ -92,6 +92,7 @@ lmB <- function(formula, data = NULL, graphOutput = TRUE, nIter=10000, thin=1, r
     rownames(tabOut[[2]])[2:(p+1)] <- substr(colnames(X),1,20)
   }
   tabOut[[2]] <- cbind(tabOut[[2]],Step)
+  colnames(tabOut[[2]])[6] <- "Pr(X>0)"
   print(tabOut)
   if(graphOutput){plot(output)}
   if(returnCodaSamples){
