@@ -42,7 +42,7 @@ glmB <- function(formula, data = NULL, graphOutput = FALSE, nIter=10000, thin=1,
     y <- data[,1]
     X <- data[,-1]
 
-  dtfResp=list(y=y,X=X,n=n,np=np)
+
   init=list(alpha=0,beta=rep(0,np))
 
   ######@
@@ -74,6 +74,7 @@ glmB <- function(formula, data = NULL, graphOutput = FALSE, nIter=10000, thin=1,
 
 
   if(np>1){
+    dtfResp=list(y=y,X=X,n=n,np=np)
   modelstring=paste("
   model {
   for (i in 1:n) {
@@ -91,6 +92,7 @@ glmB <- function(formula, data = NULL, graphOutput = FALSE, nIter=10000, thin=1,
   }
 
 if(np==1){
+  dtfResp=list(y=y,X=X,n=n)
     modelstring=paste("
 model{
   for (i in 1:n) {

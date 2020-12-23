@@ -13,12 +13,12 @@
 #' dates <- c("02/27/92", NA, "01/14/92", "02/28/92", "02/01/92")
 #' isDate(dates, date.format= "%m/%d/%y")
 #'
-#' data <- data.frame( Date=c("10/11/2012","10/12/2012"),
-#'                     AE=c(1211,100),
-#'                     Percent=c(0.03,0.43),
-#'                     Date2=c("10/27/2012","10/12/12"))
+#' data <- data.frame( Date=c("10/11/2012","10/12/2012", "25/12/2012"),
+#'                     AE=c(1211,100,23),
+#'                     Percent=c(0.03,0.43,"a"),
+#'                     Date2=c("10/27/2012","10/12/12","12/25/12" ))
 #' sapply(data,isDate)
-#' sapply(data,isDate, date.format= "%d/%m/%Y")
+#' sapply(data,isDate, date.format= "%m/%d/%y")
 
 #' @return
 #' @export
