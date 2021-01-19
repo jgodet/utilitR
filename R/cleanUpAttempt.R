@@ -19,7 +19,8 @@
 #' cleanUpAttempt(x, h=2)
 #' xc <- cleanUpAttempt(messy = x,ngroup =  2, cluster = TRUE)
 #' summary(xc)
-#'
+#' xd <- cleanUpAttempt(messy = x,h =  2, cluster = TRUE)
+#' summary(xd)
 #'
 #' # install.packages("devtools")
 #' devtools::install_github("vpnagraj/rrefine")
@@ -92,7 +93,6 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, h
     rect.hclust(hc, h = h,border=rainbow(10))
   }
   if(cluster & !is.null(ngroup)){
-
     clust <- cutree(hc,k = ngroup)
     for (j in 1:ngroup){
       cleanTemp[clust==j] <- names(sort(table(messy[clust==j]),decreasing = TRUE)[1])
@@ -103,8 +103,8 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, h
   }
 
   if(cluster & !is.null(h)){
-
-    clust <- cutree(hc,k = h)
+    clust <- cutree(hc,h = h)
+    ngroup = length(table(clust))
     for (j in 1:ngroup){
       cleanTemp[clust==j] <- names(sort(table(messy[clust==j]),decreasing = TRUE)[1])
     }
