@@ -4,7 +4,7 @@
 \alias{cleanUpAttempt}
 \title{Attempt to clean-up messy vectors}
 \usage{
-cleanUpAttempt(messy, cluster = FALSE, ngroup = NULL, graph = TRUE)
+cleanUpAttempt(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, h = NULL)
 }
 \arguments{
 \item{messy}{a factor vector}
@@ -14,6 +14,8 @@ cleanUpAttempt(messy, cluster = FALSE, ngroup = NULL, graph = TRUE)
 \item{ngroup}{integer giving the number of cluster to be formed}
 
 \item{graph}{logical plot or not hclust}
+
+\item{h}{numeric scalar or vector with heights where the tree should be cut}
 }
 \value{
 void or cleaned-up factor
@@ -28,6 +30,7 @@ use stringdist package. examples from \url{https://cran.r-project.org/web/packag
 x <- c("Y", "Y,", "Yes", "N", "No",NA,"No","No","No","Nope","Yes","Yes","Yes")
 cleanUpAttempt(x)
 cleanUpAttempt(x,ngroup =  2)
+cleanUpAttempt(x, h=2)
 xc <- cleanUpAttempt(messy = x,ngroup =  2, cluster = TRUE)
 summary(xc)
 

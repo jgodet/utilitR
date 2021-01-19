@@ -9,12 +9,14 @@
 #' @param messy a factor vector
 #' @param cluster logical
 #' @param ngroup integer giving the number of cluster to be formed
+#' @param h	 numeric scalar or vector with heights where the tree should be cut
 #' @param graph logical plot or not hclust
 #' @details use stringdist package. examples from \url{https://cran.r-project.org/web/packages/rrefine/vignettes/rrefine-vignette.html}
 #' @examples
 #' x <- c("Y", "Y,", "Yes", "N", "No",NA,"No","No","No","Nope","Yes","Yes","Yes")
 #' cleanUpAttempt(x)
 #' cleanUpAttempt(x,ngroup =  2)
+#' cleanUpAttempt(x, h=2)
 #' xc <- cleanUpAttempt(messy = x,ngroup =  2, cluster = TRUE)
 #' summary(xc)
 #'
@@ -42,7 +44,7 @@
 #' @export
 
 
-cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE ){
+cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, h=NULL ){
   if(!require(stringdist)){install.packages('stringdist')}
   if(length(messy)<3){
     return(cat("Messy must be of length > 2"))
@@ -79,18 +81,33 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE ){
   # colnames(sc)<-messy
   # hc <- hclust(dist(t(sc)))
   # plot(hc, hang = -1)
-
+  if(!is.null(h) & !is.null(ngroup)){
+    cat("Choose either ngroup or h!")
+    break
+  }
   if(!is.null(ngroup) & graph){
     rect.hclust(hc, k = ngroup,border=rainbow(ngroup))
   }
-
+  if(!is.null(h) & graph){
+    rect.hclust(hc, h = h,border=rainbow(10))
+  }
   if(cluster & !is.null(ngroup)){
 
-    clust <- cutree(hc,ngroup)
+    clust <- cutree(hc,k = ngroup)
     for (j in 1:ngroup){
       cleanTemp[clust==j] <- names(sort(table(messy[clust==j]),decreasing = TRUE)[1])
     }
+    clean[indnoNA]<-cleanTemp
+    clean <- clean[,drop=TRUE]
+    return(as.factor(clean))
+  }
 
+  if(cluster & !is.null(h)){
+
+    clust <- cutree(hc,k = h)
+    for (j in 1:ngroup){
+      cleanTemp[clust==j] <- names(sort(table(messy[clust==j]),decreasing = TRUE)[1])
+    }
     clean[indnoNA]<-cleanTemp
     clean <- clean[,drop=TRUE]
     return(as.factor(clean))
