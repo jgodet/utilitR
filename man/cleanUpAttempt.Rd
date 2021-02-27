@@ -33,7 +33,8 @@ cleanUpAttempt(x,ngroup =  2)
 cleanUpAttempt(x, h=2)
 xc <- cleanUpAttempt(messy = x,ngroup =  2, cluster = TRUE)
 summary(xc)
-
+xd <- cleanUpAttempt(messy = x,h =  2, cluster = TRUE)
+summary(xd)
 
 # install.packages("devtools")
 devtools::install_github("vpnagraj/rrefine")
