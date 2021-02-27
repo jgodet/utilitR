@@ -17,9 +17,9 @@
 
 
 tempTab<- function(gv=gv, strata= NULL){
-  cat("tabDesc <- tableone::CreateTableOne(vars = names(",gv,")[-1], data = ",gv, ",strata =",strata,",  addOverall = T)")
+  cat("tabDesc <- tableone::CreateTableOne(vars = names(",gv,"), data = ",gv, ",strata =",strata,",  addOverall = T)")
   cat("\n")
-  cat('p0 <- print(tabDesc, nonnormal =  names(gv)[-1],exact = names(gv)[-1], smd = FALSE, printToggle = FALSE, noSpaces = TRUE, test = T,  )
+  cat('pp <- print(tabDesc, nonnormal =  names(',gv,'),exact = names(',gv,'), smd = FALSE, printToggle = FALSE, noSpaces = TRUE, test = T)
   kable(pp, booktabs = T,format = "latex") %>%
     row_spec(0,bold=TRUE) %>%
     row_spec(1, hline_after = T) %>%
@@ -27,6 +27,6 @@ tempTab<- function(gv=gv, strata= NULL){
     kable_styling(latex_options = c("striped","HOLD_position","scale_down"), stripe_color = "oldlace",
                   full_width = F) %>%
     add_footnote("Median[Q1, Q3], n(%), p: wilcoxon or kruskal tests, fisher exact test", notation="alphabet")')
-
-  return()
+  cat("\n")
+  return(" ")
 }
