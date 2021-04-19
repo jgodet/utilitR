@@ -44,8 +44,8 @@ B.prop2<-function(var1,var2,n.iter=11000,n.burnin=1000,n.thin=1,prior.beta=c(1,1
 
   donnees<-list(	    N1			=length(var1),
                      N2			=length(var2),
-                     X				=dput(as.numeric(var1),		control=NULL),
-                     Y				=dput(as.numeric(var2),		control=NULL),
+                       X		=as.numeric(var1),
+                     Y			=as.numeric(var2),
                      a				=prior.beta[1],
                      b				=prior.beta[2],
                      c				=prior.beta[3],
