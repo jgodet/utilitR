@@ -58,7 +58,7 @@ B.prop2<-function(var1,var2,n.iter=11000,n.burnin=1000,n.thin=1,prior.beta=c(1,1
   }
 
 
-  mod1 = jags.model(textConnection(mod1_string), data=donnees, inits = inits1, n.chains=3)
+  mod1 = jags.model(textConnection(mod1_string), data=donnees, inits = inits1, n.chains=3, quiet = T)
   update(mod1, n.burnin) # burn-in
 
   mod1_sim = coda.samples(model=mod1,
