@@ -35,7 +35,7 @@ Estimate population proportion and interval limits from observede counts of succ
 }
 \examples{
 piEst(y = 3, n = 12, showPlot = TRUE)
-piEst(y = 3, n = 12, lateX = T)
+piEst(y = 3, n = 12, lateX = F)
 
 }
 \author{

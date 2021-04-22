@@ -27,15 +27,15 @@ B2prop(
 \item{prior.beta}{beta priors (vector of 4 parameters, two first for var1)}
 }
 \value{
-
+list with Stats (descriptive stats) and MCMC (inference)
 }
 \description{
 Cod to compare two proportions using bayesian model with beta priors
 }
 \examples{
-dtf<-data.frame(grp=c(rep("A",150),rep("B", 150)),
-                res=c(rbinom(n = 150, size = 1, prob = .5),
-                      rbinom(n = 150, size = 1, prob = .49)) )
+dtf<-data.frame(grp=c(rep("A",15),rep("B", 15)),
+                res=c(rbinom(n = 15, size = 1, prob = .5),
+                      rbinom(n = 15, size = 1, prob = .49)) )
 
 res <- B2prop(var1 = dtf$res[dtf$grp=="A"], var2 = dtf$res[dtf$grp=="B"])
 res
