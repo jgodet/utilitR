@@ -1,9 +1,9 @@
-# Bprop2.r
+# B2prop.r
 # written by JuG
 # April 19 2021
 
 
-#' Bayesian comparison for two proportions
+#' Bayesian comparison of two proportions
 #' @author JuG
 #' @description Cod to compare two proportions using bayesian model with beta priors
 #' @param var1 variable 1
@@ -18,14 +18,14 @@
 #'                 res=c(rbinom(n = 150, size = 1, prob = .5),
 #'                       rbinom(n = 150, size = 1, prob = .49)) )
 #'
-#' res <- B.prop2(var1 = dtf$res[dtf$grp=="A"], var2 = dtf$res[dtf$grp=="B"])
+#' res <- B2prop(var1 = dtf$res[dtf$grp=="A"], var2 = dtf$res[dtf$grp=="B"])
 #' res
 
 #' @return
 #' @export
 
 
-B.prop2<-function(var1,var2,n.iter=11000,n.burnin=1000,n.thin=1,prior.beta=c(1,1,1,1)){
+B2prop<-function(var1,var2,n.iter=11000,n.burnin=1000,n.thin=1,prior.beta=c(1,1,1,1)){
 
   library(rjags)
   #--------------------------------------------------------------------------------------------------
