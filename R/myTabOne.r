@@ -16,6 +16,8 @@
 #' dat$Var.A[sample(size = 4, 1:20)]<- NA
 #' dat$Var.B[sample(size = 3, 1:20)]<- NA
 #'pp2 <- myTabOne(dat = dat, strata = "Var.Gr")
+#'
+#'myTabOne(dat=lung[,-2:-1], strata = "status")
 #' @return
 #' @export
 
@@ -25,6 +27,7 @@ myTabOne <- function(dat=dat, strata = "Var.Grp" ){
   require(tableone)
   require(tidyverse)
   require(kableExtra)
+  dat[,strata] <- as.factor(dat[,strata])
 
   tabDesc <- tableone::CreateTableOne(vars = names( dat )[-1], data =  dat ,strata = strata ,
                                      includeNA = F, addOverall = TRUE)
@@ -48,11 +51,11 @@ myTabOne <- function(dat=dat, strata = "Var.Grp" ){
 
   ##############################################
   #ajuster ici le nombre de colonne
-  if(addOverall){
+  # if(addOverall){
     pp2 <- cbind(pp[,1:(length(levels(dat[,strata]))+2)], ppNA)
-  }else{
-    pp2 <- cbind(pp[,1:(length(levels(dat[,strata]))+1)], ppNA)
-  }
+  # }else{
+  #   pp2 <- cbind(pp[,1:(length(levels(dat[,strata]))+1)], ppNA)
+  # }
   return(pp2)
 }
 
