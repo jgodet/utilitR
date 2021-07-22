@@ -8,7 +8,6 @@
 #' @description
 #' @param x a vector
 #' @param date.format 	a character string as in as.Date
-#' @details
 #' @examples
 #' dates <- c("02/27/92", NA, "01/14/92", "02/28/92", "02/01/92")
 #' isDate(dates, date.format= "%m/%d/%y")
@@ -20,7 +19,7 @@
 #' sapply(data,isDate)
 #' sapply(data,isDate, date.format= "%m/%d/%y")
 
-#' @return
+#' @return vector
 #' @export
 
 
