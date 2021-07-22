@@ -5,7 +5,7 @@
 \title{Odds ratio summary statistics
 #' @author JuG}
 \usage{
-summaryOR(glm.fit, lateX = TRUE, graph = TRUE, ...)
+summaryOR(glm.fit, lateX = TRUE, graph = FALSE, digits = 3, ...)
 }
 \arguments{
 \item{glm.fit}{an object of class "glm.fit" calculated with a "binomial "link function.}
@@ -29,5 +29,5 @@ x3 <- rnorm(50, 12,5)
 
  logist <- glm(y~., data=Data, family="binomial")
  summary(logist)
- summaryOR(glm.fit=logist,lateX=FALSE,graph=FALSE)
+ summaryOR(glm.fit=logist,lateX=FALSE,graph=FALSE, digits=4)
 }

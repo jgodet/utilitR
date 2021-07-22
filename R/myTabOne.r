@@ -3,9 +3,9 @@
 # May 11 2021
 
 
-#' Create Table One with NA counts
+#' Create TableOne with NA counts
 #' @author JuG
-#' @description  basis from package table one
+#' @description  basis from package tableone
 #' @param
 #' @details
 #' @examples

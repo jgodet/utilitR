@@ -5,10 +5,9 @@
 
 #' Check if a variable is 0/1 encoded
 #' @author JuG
-#' @description
+#' @description Check if a variable is 0/1 encoded
 #' @param x a vector
 #' @param na.rm a logical value indicating whether NA values should be stripped before the computation proceeds.
-#' @details
 #' @examples
 #'testDf <- data.frame(a = runif(10),
 #'                     b = rbinom(10, size = 1, prob = .2),
