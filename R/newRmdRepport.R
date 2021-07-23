@@ -25,22 +25,22 @@ newRmdRepport<- function(nom = "NOM", prenom = "PRENOM", path = NULL, filename =
   #st3 <-"\\voffset -0.2 in \n\\textheight 20cm \n\\headheight 0.6cm \n\\headsep 1 cm	\n\n\n\n\n\\begin{document}\n"
   if(length(grep("macOS",sessionInfo()$running))>=1){
     st4 <-paste("\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{/Users/jgodet/Seafile/MaBibliotheque/hus/logo1.png}~ \\\\ [0.5cm]\n
-\\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE Résultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
+\\textsc{\\normalsize H\^opitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE R\'esultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
   }else{
     if(length(grep("linux",sessionInfo()$running))>=1){
       st4 <-paste("\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{/home/jgodet/Seafile/MaBibliotheque/hus/logo1.png}~ \\\\ [0.5cm]\n
-\\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE Résultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
+\\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE R\'esultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
     }else{
-      st4 <-paste("\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{C://Seafile/MaBibliotheque/hus/logo1.png}~ \\\\ [0.5cm]\n
-\\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE Résultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
+      st4 <-paste("\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{C:/Users/godetjul/Seafile/hus/logo1.png}~ \\\\ [0.5cm]\n
+\\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE R\'esultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
     }
       }
   st5 <-"\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n"
   st6 <-"\\begin{minipage}{0.75\\textwidth}\n\\begin{flushright}\n
 \\emph{Julien GODET}\\\\ \n\\emph{MCU-PH}\\\\ \n
-\\emph{Pôle de Santé Publique}\\\\ \n\\emph{\\href{mailto:julien.godet@chru-strasbourg.fr}{julien.godet@chru-strasbourg.fr}}\\\\\\ \n\\emph{\\href{mailto:jgodet@unistra.fr}{julien.godet@unistra.fr}} \n~\\\\ \n\\emph{\\today}\\\\ \n"
+\\emph{P\^ole de Sant\'e Publique}\\\\ \n\\emph{\\href{mailto:julien.godet@chru-strasbourg.fr}{julien.godet@chru-strasbourg.fr}}\\\\\\ \n\\emph{\\href{mailto:jgodet@unistra.fr}{julien.godet@unistra.fr}} \n~\\\\ \n\\emph{\\today}\\\\ \n"
   st7 <-"\\end{flushright}\n\\end{minipage}\n\\vfill\n\\vfill\n\\end{center}\n\\end{titlepage}\n\\newpage\n\\tableofcontents\n\\newpage\n\n\n"
-  st8 <-"## Objectifs et critères de jugement\n"
+  st8 <-"## Objectifs et criteres de jugement\n"
 
 
   if(is.null(path)){
