@@ -20,7 +20,7 @@
 
 
 newRmdRepport<- function(nom = "NOM", prenom = "PRENOM", path = NULL, filename = NULL){
-  st1 <-"---\noutput:\n  pdf_document\nurlcolor: blue\nheader-includes: \\definecolor{oldlace}{rgb}{1.00, 0.976,0.93}\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = FALSE, message = FALSE, warning=FALSE)\n```\n"
+  st1 <-"---\noutput:\n  pdf_document:\n    keep_tex: true\n\nurlcolor: blue\nheader-includes: \\definecolor{oldlace}{rgb}{1.00, 0.976,0.93}\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(echo = FALSE, message = FALSE, warning=FALSE)\n```\n"
   #st2 <-paste("\n\\definecolor{oldlace}{rgb}{1.00, 0.976,0.93}\n\\newcommand{\\nom}{",nom,"} % le nom du clinicien (titre du rapport et bas de page)\n\\newcommand{\\prenom}{",prenom,"}% le prenom du clinicien (titre du rapport et bas de page)\n\n\n",sep='')
   #st3 <-"\\voffset -0.2 in \n\\textheight 20cm \n\\headheight 0.6cm \n\\headsep 1 cm	\n\n\n\n\n\\begin{document}\n"
   if(length(grep("macOS",sessionInfo()$running))>=1){
