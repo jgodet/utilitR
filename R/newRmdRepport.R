@@ -38,9 +38,9 @@ newRmdRepport<- function(nom = "NOM", prenom = "PRENOM", path = NULL, filename =
   st5 <-"\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n\\vfill\n"
   st6 <-"\\begin{minipage}{0.75\\textwidth}\n\\begin{flushright}\n
 \\emph{Julien GODET}\\\\ \n\\emph{MCU-PH}\\\\ \n
-\\emph{P\\^ole de Sant\'e Publique}\\\\ \n\\emph{\\href{mailto:julien.godet@chru-strasbourg.fr}{julien.godet@chru-strasbourg.fr}}\\\\\\ \n\\emph{\\href{mailto:jgodet@unistra.fr}{julien.godet@unistra.fr}} \n~\\\\ \n\\emph{\\today}\\\\ \n"
+\\emph{P\\^ole de Sant\\'e Publique}\\\\ \n\\emph{\\href{mailto:julien.godet@chru-strasbourg.fr}{julien.godet@chru-strasbourg.fr}}\\\\\\ \n\\emph{\\href{mailto:jgodet@unistra.fr}{julien.godet@unistra.fr}} \n~\\\\ \n\\emph{\\today}\\\\ \n"
   st7 <-"\\end{flushright}\n\\end{minipage}\n\\vfill\n\\vfill\n\\end{center}\n\\end{titlepage}\n\\newpage\n\\tableofcontents\n\\newpage\n\n\n"
-  st8 <-"## Objectifs et criteres de jugement\n"
+  st8 <-"## Objectifs et crit\\`eres de jugement\n"
 
 
   if(is.null(path)){
