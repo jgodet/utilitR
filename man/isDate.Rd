@@ -12,7 +12,7 @@ isDate(x, date.format)
 \item{date.format}{a character string as in as.Date}
 }
 \value{
-
+vector
 }
 \description{
 Test if a vector can be a class Date
