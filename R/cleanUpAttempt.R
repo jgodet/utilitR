@@ -15,6 +15,7 @@
 #' @examples
 #' x <- c("Y", "Y,", "Yes", "N", "No",NA,"No","No","No","Nope","Yes","Yes","Yes")
 #' cleanUpAttempt(x)
+#' cleanUpAttempt(x, meth="osa")
 #' cleanUpAttempt(x,ngroup =  2)
 #' cleanUpAttempt(x, h=2)
 #' xc <- cleanUpAttempt(messy = x,ngroup =  2, cluster = TRUE)
@@ -27,40 +28,52 @@
 #' library(rrefine)
 #' summary(lateformeeting$what.day.whas.it) #What a mess!
 #' cleanUpAttempt(messy = lateformeeting$what.day.whas.it)
-#' cleaned <-cleanUpAttempt(messy = lateformeeting$what.day.whas.it,ngroup = 5,cluster=TRUE)
+#' cleanUpAttempt(messy = lateformeeting$what.day.whas.it, showUnique=T)
+#' cleaned <-cleanUpAttempt(messy = lateformeeting$what.day.whas.it,ngroup = 5,cluster=TRUE, showUnique=T)
 #' summary(cleaned)
 #'
 #' cleanUpAttempt(messy = lateformeeting$was.i.on.time.for.work,ngroup=2)
 #'
 #' raw <- c("persistante modérée à sévère", "Persistante modérée a sévère","légère", "persistante modérée à sévère",
 #' "persistante légère", "persistante modérée à sévère","persistante  modérée à sévère",
-#' "persistante modérée à sévère","persistante modérée  à sévère", "persistante modérée à sévère","rien à voir",
-#' "persistante modérée à sévère",NA, "persistante modérée à sévère",
+#' "persistante modérée à sévère","persistante modéré  à sévère", "persistante modérée à sévère","rien à voir",
+#' "persistante modérée à sévère",NA, "persistant modéré a severe",
 #' "persistante légère","persistante modérée à sévère", "autre solution","persistante modérée,à sévère",
 #' "persistante modérée à sévère","persistante modérée à sévère", "persistante légère","persistante modérée à sévèr",
-#' "persistante légère", "persistant modérée à sévère")
+#' "persistant legere", "persistant modérée à sévère", "")
 #' cleanUpAttempt(messy = raw)
-#' cleanUpAttempt(messy = raw,ngroup=4)
+#' cleanUpAttempt(messy = raw,ngroup=6, showUnique=T)
 #' @return void or cleaned-up factor
 #' @export
 
 
-cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, h=NULL ){
+cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, showUnique=FALSE,  h=NULL, meth="jw" ){
   if(!require(stringdist)){install.packages('stringdist')}
   if(length(messy)<3){
     return(cat("Messy must be of length > 2"))
     }
   require(stringdist)
   clean <- messy
+  cleanTemp <- clean
   indnoNA <- which(!is.na(messy))
   messy <- na.omit(messy)
-  cleanTemp <- messy
-  d1 <- stringdistmatrix(unaccent(messy))
-  d2 <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(unaccent(messy))))
-  d3 <- stringdistmatrix(substring(tolower(unaccent(messy)), first = 1,last = 1))
+  d1 <- stringdistmatrix(unaccent(messy), method=meth)
+  d2 <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(unaccent(messy))), method=meth)
+  d3 <- stringdistmatrix(substring(tolower(unaccent(messy)), first = 1,last = 1), method=meth)
   d <- d1+d2+d3
   hc <- hclust(d)
-  if(graph){plot(hc,labels = messy,hang=-1)}
+  if(graph & ! showUnique){plot(hc,labels = messy,hang=-1)}
+
+  if(graph & showUnique){
+    messyU <- unique(messy)
+    d1U <- stringdistmatrix(unaccent(messyU), method=meth)
+    d2U <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(unaccent(messyU))), method=meth)
+    d3U <- stringdistmatrix(substring(tolower(unaccent(messyU)), first = 1,last = 1), method=meth)
+    dU <- d1U + d2U + d3U
+    hcU <- hclust(dU)
+
+    plot(hcU,labels = messyU, hang=-1)
+    }
 
 
   # sc<-numeric()
@@ -86,11 +99,18 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, h
     cat("Choose either ngroup or h!")
     break
   }
-  if(!is.null(ngroup) & graph){
+  if(!is.null(ngroup) & graph & !showUnique){
     rect.hclust(hc, k = ngroup,border=rainbow(ngroup))
   }
-  if(!is.null(h) & graph){
+  if(!is.null(ngroup) & graph & showUnique){
+    rect.hclust(hcU, k = ngroup,border=rainbow(ngroup))
+  }
+
+  if(!is.null(h) & graph & !showUnique){
     rect.hclust(hc, h = h,border=rainbow(10))
+  }
+  if(!is.null(h) & graph & showUnique){
+    rect.hclust(hcU, h = h,border=rainbow(10))
   }
   if(cluster & !is.null(ngroup)){
     clust <- cutree(hc,k = ngroup)
