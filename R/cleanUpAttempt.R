@@ -11,6 +11,8 @@
 #' @param ngroup integer giving the number of cluster to be formed
 #' @param h	 numeric scalar or vector with heights where the tree should be cut
 #' @param graph logical plot or not hclust
+#' @param showUnique logical make hclust on labels with duplicate elements/rows removed
+#' @param meth Method for distance calculation. Can be "osa", "lv", "dl", "hamming", "lcs", "qgram", "cosine", "jaccard", "jw","soundex". See stringdist-metrics for more information
 #' @details use stringdist package. examples from \url{https://cran.r-project.org/web/packages/rrefine/vignettes/rrefine-vignette.html}
 #' @examples
 #' x <- c("Y", "Y,", "Yes", "N", "No",NA,"No","No","No","Nope","Yes","Yes","Yes")
@@ -62,7 +64,7 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, s
   d3 <- stringdistmatrix(substring(tolower(unaccent(messy)), first = 1,last = 1), method=meth)
   d <- d1+d2+d3
   hc <- hclust(d)
-  if(graph & ! showUnique){plot(hc,labels = messy,hang=-1)}
+  if(graph & ! showUnique){plot(hc,labels = messy,hang=-1, xlab = "",sub = "")}
 
   if(graph & showUnique){
     messyU <- unique(messy)
@@ -72,7 +74,7 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, s
     dU <- d1U + d2U + d3U
     hcU <- hclust(dU)
 
-    plot(hcU,labels = messyU, hang=-1)
+    plot(hcU,labels = messyU, hang=-1, xlab = "",sub = "")
     }
 
 
