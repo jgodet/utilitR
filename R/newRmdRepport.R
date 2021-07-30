@@ -27,7 +27,7 @@ newRmdRepport<- function(nom = "NOM", prenom = "PRENOM", path = NULL, filename =
     st4 <-paste("\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{/Users/jgodet/Seafile/MaBibliotheque/hus/logo1.png}~ \\\\ [0.5cm]\n
 \\textsc{\\normalsize H\\^opitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE R\\'esultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
   }else{
-    if(length(grep("linux",sessionInfo()$running))>=1){
+    if(length(grep("Ubuntu",sessionInfo()$running))>=1){
       st4 <-paste("\\begin{titlepage}\n\\begin{center}\n\\includegraphics[width=0.4\\textwidth]{/home/jgodet/Seafile/MaBibliotheque/hus/logo1.png}~ \\\\ [0.5cm]\n
 \\textsc{\\normalsize Hôpitaux Universitaires de Strasbourg}\\\\ [2.5cm]\n\n\\textsc{\\LARGE R\\'esultats d'analyses statistiques}\\\\ [0.5cm]\n\\textsc{\\LARGE pour}\\\\ [0.5cm]\n\\textsc{\\LARGE  ", prenom, "~", nom,"}\\\\ \n",sep='')
     }else{
