@@ -45,6 +45,7 @@
 #' "persistant legere", "persistant modérée à sévère", "")
 #' cleanUpAttempt(messy = raw)
 #' cleanUpAttempt(messy = raw,ngroup=6, showUnique=T)
+#' table(cleanUpAttempt(messy=raw, ngroup=6,  graph = F, cluster = T))
 #' @return void or cleaned-up factor
 #' @export
 
@@ -56,21 +57,21 @@ cleanUpAttempt<- function(messy, cluster = FALSE, ngroup = NULL, graph = TRUE, s
     }
   require(stringdist)
   clean <- messy
-  cleanTemp <- clean
   indnoNA <- which(!is.na(messy))
   messy <- na.omit(messy)
-  d1 <- stringdistmatrix(unaccent(messy), method=meth)
-  d2 <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(unaccent(messy))), method=meth)
-  d3 <- stringdistmatrix(substring(tolower(unaccent(messy)), first = 1,last = 1), method=meth)
+  cleanTemp <- messy
+  d1 <- stringdistmatrix(utilitR::unaccent(messy), method=meth)
+  d2 <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(utilitR::unaccent(messy))), method=meth)
+  d3 <- stringdistmatrix(substring(tolower(utilitR::unaccent(messy)), first = 1,last = 1), method=meth)
   d <- d1+d2+d3
   hc <- hclust(d)
   if(graph & ! showUnique){plot(hc,labels = messy,hang=-1, xlab = "",sub = "")}
 
   if(graph & showUnique){
     messyU <- unique(messy)
-    d1U <- stringdistmatrix(unaccent(messyU), method=meth)
-    d2U <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(unaccent(messyU))), method=meth)
-    d3U <- stringdistmatrix(substring(tolower(unaccent(messyU)), first = 1,last = 1), method=meth)
+    d1U <- stringdistmatrix(utilitR::unaccent(messyU), method=meth)
+    d2U <- stringdistmatrix(gsub(pattern = " ",replacement = "",tolower(utilitR::unaccent(messyU))), method=meth)
+    d3U <- stringdistmatrix(substring(tolower(utilitR::unaccent(messyU)), first = 1,last = 1), method=meth)
     dU <- d1U + d2U + d3U
     hcU <- hclust(dU)
 
